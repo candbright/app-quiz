@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/container_top"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/color_background_normal">
+
+        <ImageView
+            android:id="@+id/button_left"
+            android:layout_width="@dimen/dp_50"
+            android:layout_height="@dimen/dp_50"
+            android:padding="@dimen/dp_12"
+            android:src="@color/common_blue"
+            app:layout_constraintBottom_toBottomOf="@+id/container_top"
+            app:layout_constraintLeft_toLeftOf="@+id/container_top"
+            app:layout_constraintTop_toTopOf="@+id/container_top" />
+
+        <TextView
+            android:id="@+id/tv_title"
+            android:layout_width="@dimen/dp_0"
+            android:layout_height="@dimen/dp_50"
+            android:gravity="center"
+            android:includeFontPadding="false"
+            android:text="TITLE"
+            android:textColor="@color/color_text_black"
+            android:textSize="@dimen/sp_14"
+            app:layout_constraintLeft_toRightOf="@+id/button_left"
+            app:layout_constraintRight_toLeftOf="@+id/button_right"
+            app:layout_constraintTop_toTopOf="@+id/container_top" />
+
+        <ImageView
+            android:id="@+id/button_right"
+            android:layout_width="@dimen/dp_50"
+            android:layout_height="@dimen/dp_50"
+            android:padding="@dimen/dp_12"
+            android:src="@color/common_blue"
+            app:layout_constraintBottom_toBottomOf="@+id/container_top"
+            app:layout_constraintRight_toRightOf="@+id/container_top"
+            app:layout_constraintTop_toTopOf="@+id/container_top" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</merge>

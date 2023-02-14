@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="common_blue">#FF009DE1</color>
+    <color name="common_gray_FF">#FF999999</color>
+    <color name="common_gray_AA">#33999999</color>
+    <color name="common_black">#FF000000</color>
+    <color name="common_white">#FFFFFFFF</color>
+    <!-- 潘通色系 -->
+    <color name="pantone_cyan">#91ffc2</color>
+    <color name="pantone_purple_1">#bdb8ff</color>
+    <color name="pantone_purple_2">#d980ff</color>
+    <color name="pantone_pink">#ffc2ed</color>
+    <color name="pantone_flesh_2">#e6bebc</color>
+    <color name="pantone_flesh_1">#f0d8d3</color>
+
+
+    <color name="color_background_card">#EAEAEA</color>
+    <color name="color_background_normal">#F7F8F9</color>
+
+    <color name="color_background_edit">#F7F8F9</color>
+
+    <color name="color_text_black">#FF000000</color>
+    <color name="color_text_edit">#333333</color>
+    <color name="color_text_hint">#777777</color>
+    <color name="color_text_card">#333333</color>
+    <color name="color_text_bottom_bar">#333333</color>
+
+    <color name="color_divider_line">#CCCCCC</color>
+
+
+</resources>

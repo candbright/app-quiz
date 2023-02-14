@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="title_question_bank">题库列表</string>
+
+    <string name="navigation_bottom_first">题库</string>
+    <string name="navigation_bottom_second">答题</string>
+    <string name="navigation_bottom_third">我的</string>
+
+    <string name="subject_0">常识和百科</string>
+    <string name="subject_1">语文</string>
+    <string name="subject_2">数学</string>
+    <string name="subject_3">历史</string>
+    <string name="subject_4">地理</string>
+    <string name="subject_5">物理</string>
+    <string name="subject_6">化学</string>
+    <string name="subject_7">生物</string>
+
+</resources>

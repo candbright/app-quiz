@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="color_background_card">#2A2A2B</color>
+    <color name="color_background_normal">#121212</color>
+    <color name="color_background_edit">#202020</color>
+
+    <color name="color_text_edit">#E1E1E1</color>
+    <color name="color_text_hint">#999999</color>
+    <color name="color_text_card">#E1E1E1</color>
+    <color name="color_text_bottom_bar">#E1E1E1</color>
+
+    <color name="color_divider_line">#EEEEEE</color>
+</resources>
