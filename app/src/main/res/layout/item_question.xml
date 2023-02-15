@@ -1,49 +1,137 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/card_root"
+    android:id="@+id/container_main"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:layout_marginHorizontal="@dimen/dp_10"
-    android:layout_marginVertical="@dimen/dp_5"
-    android:foreground="?selectableItemBackground"
-    app:cardBackgroundColor="@color/color_background_normal"
-    app:cardCornerRadius="@dimen/dp_8"
-    app:cardElevation="@dimen/dp_6"
-    tools:context=".model.holder.QuestionSubjectHolder">
+    android:layout_height="match_parent"
+    android:background="@color/color_background_normal"
+    tools:context=".ui.home.QuestionFragment">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/layout_container"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical">
+    <LinearLayout
+        android:id="@+id/ll_top_bar"
+        android:layout_width="@dimen/dp_0"
+        android:layout_height="@dimen/dp_50"
+        android:orientation="horizontal"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/ll_title"
+        android:layout_width="@dimen/dp_0"
+        android:layout_height="@dimen/dp_100"
+        android:orientation="horizontal"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/ll_top_bar">
 
         <TextView
-            android:id="@+id/tv_subject"
-            android:layout_width="@dimen/dp_0"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="@dimen/dp_5"
-            android:ellipsize="end"
-            android:gravity="center_vertical"
-            android:maxLines="1"
-            android:paddingLeft="@dimen/dp_5"
-            android:text="subject"
-            android:textSize="@dimen/sp_12"
-            app:layout_constraintBottom_toBottomOf="@+id/layout_container"
-            app:layout_constraintLeft_toLeftOf="@id/layout_container"
-            app:layout_constraintRight_toLeftOf="@+id/image_goto"
-            app:layout_constraintTop_toTopOf="@+id/image_goto" />
+            android:id="@+id/tv_title"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginHorizontal="@dimen/dp_20"
+            android:layout_marginVertical="@dimen/dp_10"
+            android:text="question"
+            android:textSize="@dimen/sp_28" />
+    </LinearLayout>
 
-        <ImageView
-            android:id="@+id/image_goto"
-            android:layout_width="@dimen/dp_60"
-            android:layout_height="@dimen/dp_60"
-            android:background="@color/color_background_card"
-            app:layout_constraintBottom_toBottomOf="@+id/layout_container"
-            app:layout_constraintRight_toRightOf="@+id/layout_container"
-            app:layout_constraintTop_toTopOf="@+id/layout_container" />
+    <LinearLayout
+        android:id="@+id/ll_answers"
+        android:layout_width="@dimen/dp_0"
+        android:layout_height="@dimen/dp_240"
+        android:orientation="vertical"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ll_title">
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+        <LinearLayout
+            android:id="@+id/ll_answer_first"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_0"
+            android:layout_weight="1"
+            android:orientation="horizontal"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/ll_title">
 
-</androidx.cardview.widget.CardView>
+            <ImageView
+                android:id="@+id/iv_first"
+                android:layout_width="@dimen/dp_80"
+                android:layout_height="match_parent"/>
+
+            <TextView
+                android:id="@+id/tv_first"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/ll_answer_second"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_0"
+            android:layout_weight="1"
+            android:orientation="horizontal"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/ll_title">
+            <ImageView
+                android:id="@+id/iv_second"
+                android:layout_width="@dimen/dp_80"
+                android:layout_height="match_parent"/>
+
+            <TextView
+                android:id="@+id/tv_second"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/ll_answer_third"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_0"
+            android:layout_weight="1"
+            android:orientation="horizontal"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/ll_title">
+            <ImageView
+                android:id="@+id/iv_third"
+                android:layout_width="@dimen/dp_80"
+                android:layout_height="match_parent"/>
+
+            <TextView
+                android:id="@+id/tv_third"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"/>
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/ll_description"
+        android:layout_width="@dimen/dp_0"
+        android:layout_height="@dimen/dp_0"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toTopOf="@+id/ll_bottom_bar"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ll_answers">
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/ll_bottom_bar"
+        android:layout_width="@dimen/dp_0"
+        android:layout_height="@dimen/dp_100"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent">
+
+    </LinearLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

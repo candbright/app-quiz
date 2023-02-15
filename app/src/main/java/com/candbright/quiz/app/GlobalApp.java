@@ -5,7 +5,9 @@ import android.content.Context;
 import android.content.res.Resources;
 import android.util.Log;
 
+import com.candbright.quiz.dao.helper.QuestionDaoHelper;
 import com.candbright.quiz.dao.helper.QuestionSubjectDaoHelper;
+import com.candbright.quiz.model.data.Question;
 import com.candbright.quiz.model.data.QuestionSubject;
 import com.candbright.quiz.util.Utility;
 
@@ -36,12 +38,19 @@ public class GlobalApp extends Application {
     private void initDao() {
         Boolean isRead = (Boolean) Utility.getShareFileData(this, "isRead", false);
         if (!isRead) {
-            String jsonStr = Utility.getJson(this, "question_subject.json");
-            List<QuestionSubject> data = Utility.jsonToList(jsonStr, QuestionSubject.class);
-            if (data != null && data.size() > 0) {
+            String questionSubjectStr = Utility.getJson(this, "question_subject.json");
+            List<QuestionSubject> questionSubjectData = Utility.jsonToList(questionSubjectStr, QuestionSubject.class);
+            if (questionSubjectData != null && questionSubjectData.size() > 0) {
                 QuestionSubjectDaoHelper daoHelper = QuestionSubjectDaoHelper.getInstance(this);
-                daoHelper.insert(data);
+                daoHelper.insert(questionSubjectData);
             }
+            String questionStr = Utility.getJson(this, "question_subject.json");
+            List<Question> questionData = Utility.jsonToList(questionStr, Question.class);
+            if (questionData != null && questionData.size() > 0) {
+                QuestionDaoHelper daoHelper = QuestionDaoHelper.getInstance(this);
+                daoHelper.insert(questionData);
+            }
+            Utility.setShareFileData(this, "isRead", true);
         }
     }
 

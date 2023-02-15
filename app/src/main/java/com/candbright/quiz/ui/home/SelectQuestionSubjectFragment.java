@@ -23,7 +23,7 @@ public class SelectQuestionSubjectFragment extends BaseFragment<FragmentQuestion
     private NavigationBarBinding navigationBarTop;
     private NavigationBarManager navigationBarTopManager;
 
-    MyDiffAdapter sortedAdapter;
+    MyDiffAdapter dataAdapter;
     SortedItemList<QuestionSubjectItem> mData;
 
     @Override
@@ -60,10 +60,10 @@ public class SelectQuestionSubjectFragment extends BaseFragment<FragmentQuestion
             mData.add((QuestionSubjectItem) new QuestionSubjectItem().setSubject(datum.getSubject())
                     .setSortedIndex(datum.getId().intValue()));
         });
-        sortedAdapter = new MyDiffAdapter(mData.list());
-        rootBinding.rvDataList.setAdapter(sortedAdapter);
+        dataAdapter = new MyDiffAdapter(mData.list());
+        rootBinding.rvDataList.setAdapter(dataAdapter);
         rootBinding.rvDataList.setLayoutManager(new LinearLayoutManager(getContext()));
-        sortedAdapter.setOnItemListener((tag, switchValue, d) -> {
+        dataAdapter.setOnItemListener((tag, switchValue, d) -> {
         });
     }
 
