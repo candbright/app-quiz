@@ -6,13 +6,14 @@
     <string name="navigation_bottom_second">答题</string>
     <string name="navigation_bottom_third">我的</string>
 
-    <string name="subject_0">常识和百科</string>
-    <string name="subject_1">语文</string>
-    <string name="subject_2">数学</string>
-    <string name="subject_3">历史</string>
-    <string name="subject_4">地理</string>
-    <string name="subject_5">物理</string>
-    <string name="subject_6">化学</string>
-    <string name="subject_7">生物</string>
+    <string name="subject_china">国家</string>
+    <string name="subject_wiki">常识和百科</string>
+    <string name="subject_language">语文</string>
+    <string name="subject_math">数学</string>
+    <string name="subject_history">历史</string>
+    <string name="subject_geography">地理</string>
+    <string name="subject_physics">物理</string>
+    <string name="subject_chemistry">化学</string>
+    <string name="subject_biology">生物</string>
 
 </resources>

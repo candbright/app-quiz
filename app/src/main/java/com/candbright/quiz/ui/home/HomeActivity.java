@@ -31,13 +31,13 @@ public class HomeActivity extends BaseExitActivity<ActivityHomeBinding> {
     @Override
     protected void initManager() {
         fragmentManager = new ActivityFragmentManager(this, R.id.fragment_container);
-        fragmentManager.addOrReplaceFragment(new QuestionBankFragment());
+        fragmentManager.addOrReplaceFragment(new SelectQuestionSubjectFragment());
         navigationBottomBarManager = new NavigationBottomBarManager(navigationBarBottom);
         navigationBottomBarManager.setFirstButtonClickListener(v -> {
-            fragmentManager.addOrReplaceFragment(new QuestionBankFragment());
+            fragmentManager.addOrReplaceFragment(new SelectQuestionSubjectFragment());
         });
         navigationBottomBarManager.setSecondButtonClickListener(v -> {
-            fragmentManager.addOrReplaceFragment(new QuestionBankFragment());
+            fragmentManager.addOrReplaceFragment(new SelectQuestionSubjectFragment());
         });
         navigationBottomBarManager.setThirdClickListener(v -> {
 

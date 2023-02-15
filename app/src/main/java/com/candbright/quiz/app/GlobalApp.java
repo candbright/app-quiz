@@ -5,6 +5,12 @@ import android.content.Context;
 import android.content.res.Resources;
 import android.util.Log;
 
+import com.candbright.quiz.dao.helper.QuestionSubjectDaoHelper;
+import com.candbright.quiz.model.data.QuestionSubject;
+import com.candbright.quiz.util.Utility;
+
+import java.util.List;
+
 /**
  * <p>created by wyh in 2021/12/10</p>
  */
@@ -28,7 +34,15 @@ public class GlobalApp extends Application {
     }
 
     private void initDao() {
-
+        Boolean isRead = (Boolean) Utility.getShareFileData(this, "isRead", false);
+        if (!isRead) {
+            String jsonStr = Utility.getJson(this, "question_subject.json");
+            List<QuestionSubject> data = Utility.jsonToList(jsonStr, QuestionSubject.class);
+            if (data != null && data.size() > 0) {
+                QuestionSubjectDaoHelper daoHelper = QuestionSubjectDaoHelper.getInstance(this);
+                daoHelper.insert(data);
+            }
+        }
     }
 
 

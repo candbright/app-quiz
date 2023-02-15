@@ -1,0 +1,53 @@
+[
+  {
+    "difficulty": 1,
+    "subject": "subject_china",
+    "question": "新中国的成立时间是哪一年？",
+    "answerType": 0,
+    "answer": "1949",
+    "description": ""
+  },
+  {
+    "difficulty": 1,
+    "subject": "subject_china",
+    "question": "77事变发生在哪一年？",
+    "answerType": 0,
+    "answer": "1937",
+    "description": "77事变又称卢沟桥事变，发生在1937的年7月7日。"
+  },
+  {
+    "difficulty": 1,
+    "subject": "subject_china",
+    "question": "杂交水稻之父是谁？",
+    "answerType": 0,
+    "answer": "袁隆平",
+    "description": ""
+  },
+  {
+    "difficulty": 1,
+    "subject": "subject_china",
+    "question": "中国的全称是什么？",
+    "answerType": 0,
+    "answer": "中华人民共和国",
+    "description": ""
+  },
+  {
+    "difficulty": 1,
+    "subject": "subject_language",
+    "question": "孔子性什么？",
+    "answerType": 1,
+    "answer": "子",
+    "answers": [
+      "孔", "子", "李"
+    ],
+    "description": "孔子子性，孔氏，名丘，字仲尼。"
+  },
+  {
+    "difficulty": 1,
+    "subject": "subject_language",
+    "question": "四书五经是什么？",
+    "answerType": 0,
+    "answer": "四书：《论语》《中庸》《大学》《孟子》，五经：《诗经》《尚书》《礼记》《周易》《春秋》。",
+    "description": ""
+  }
+]

@@ -21,8 +21,8 @@ public class MyDiffAdapter extends BaseDiffAdapter {
 
     private OnItemEventListener mListener;
 
-    public MyDiffAdapter(List<SortedItem> datas) {
-        super(datas);
+    public MyDiffAdapter(List<SortedItem> data) {
+        super(data);
     }
 
     @Override

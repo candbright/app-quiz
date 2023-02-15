@@ -11,7 +11,7 @@
     app:cardBackgroundColor="@color/color_background_normal"
     app:cardCornerRadius="@dimen/dp_8"
     app:cardElevation="@dimen/dp_6"
-    tools:context=".model.holder.QuestionBankHolder">
+    tools:context=".model.holder.QuestionSubjectHolder">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/layout_container"

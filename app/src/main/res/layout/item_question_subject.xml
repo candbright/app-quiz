@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/card_root"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginHorizontal="@dimen/dp_10"
+    android:layout_marginVertical="@dimen/dp_5"
+    android:foreground="?selectableItemBackground"
+    app:cardBackgroundColor="@color/color_background_normal"
+    app:cardCornerRadius="@dimen/dp_8"
+    app:cardElevation="@dimen/dp_6"
+    tools:context=".model.holder.QuestionSubjectHolder">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/layout_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tv_subject"
+            android:layout_width="@dimen/dp_0"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/dp_5"
+            android:ellipsize="end"
+            android:gravity="center_vertical"
+            android:maxLines="1"
+            android:paddingLeft="@dimen/dp_5"
+            android:text="subject"
+            android:textSize="@dimen/sp_12"
+            app:layout_constraintBottom_toBottomOf="@+id/layout_container"
+            app:layout_constraintLeft_toLeftOf="@id/layout_container"
+            app:layout_constraintRight_toLeftOf="@+id/image_goto"
+            app:layout_constraintTop_toTopOf="@+id/image_goto" />
+
+        <ImageView
+            android:id="@+id/image_goto"
+            android:layout_width="@dimen/dp_60"
+            android:layout_height="@dimen/dp_60"
+            android:background="@color/color_background_card"
+            app:layout_constraintBottom_toBottomOf="@+id/layout_container"
+            app:layout_constraintRight_toRightOf="@+id/layout_container"
+            app:layout_constraintTop_toTopOf="@+id/layout_container" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.cardview.widget.CardView>

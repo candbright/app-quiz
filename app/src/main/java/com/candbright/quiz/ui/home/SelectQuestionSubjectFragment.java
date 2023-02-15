@@ -8,23 +8,23 @@ import com.candbright.base.fragment.FragmentLifecycleListener;
 import com.candbright.base.fragment.IFragmentLifecycleListener;
 import com.candbright.quiz.R;
 import com.candbright.quiz.app.GlobalApp;
-import com.candbright.quiz.dao.helper.QuestionBankDaoHelper;
+import com.candbright.quiz.dao.helper.QuestionSubjectDaoHelper;
 import com.candbright.quiz.databinding.FragmentQuestionBankBinding;
 import com.candbright.quiz.databinding.NavigationBarBinding;
 import com.candbright.quiz.manager.widget.NavigationBarManager;
 import com.candbright.quiz.model.adapter.MyDiffAdapter;
-import com.candbright.quiz.model.data.QuestionBank;
-import com.candbright.quiz.model.item.QuestionBankItem;
+import com.candbright.quiz.model.data.QuestionSubject;
+import com.candbright.quiz.model.item.QuestionSubjectItem;
 
 import java.util.List;
 
-public class QuestionBankFragment extends BaseFragment<FragmentQuestionBankBinding> {
+public class SelectQuestionSubjectFragment extends BaseFragment<FragmentQuestionBankBinding> {
     private static final String TAG = "<QuestionBankFragment>";
     private NavigationBarBinding navigationBarTop;
     private NavigationBarManager navigationBarTopManager;
 
     MyDiffAdapter sortedAdapter;
-    SortedItemList<QuestionBankItem> mData;
+    SortedItemList<QuestionSubjectItem> mData;
 
     @Override
     protected void initViewBinding() {
@@ -54,13 +54,12 @@ public class QuestionBankFragment extends BaseFragment<FragmentQuestionBankBindi
     private void initData() {
         //主界面数据
         mData = new SortedItemList(true);
-        QuestionBankDaoHelper daoHelper = QuestionBankDaoHelper.getInstance(GlobalApp.getInstance());
-        List<QuestionBank> data = daoHelper.searchAll();
-        for (int i = 0; i < data.size(); i++) {
-            QuestionBank item = data.get(i);
-            mData.add((QuestionBankItem) new QuestionBankItem().setSubject(item.getSubject())
-                    .setSortedIndex(item.getId().intValue()));
-        }
+        QuestionSubjectDaoHelper daoHelper = QuestionSubjectDaoHelper.getInstance(GlobalApp.getInstance());
+        List<QuestionSubject> data = daoHelper.searchAll();
+        data.stream().forEach(datum -> {
+            mData.add((QuestionSubjectItem) new QuestionSubjectItem().setSubject(datum.getSubject())
+                    .setSortedIndex(datum.getId().intValue()));
+        });
         sortedAdapter = new MyDiffAdapter(mData.list());
         rootBinding.rvDataList.setAdapter(sortedAdapter);
         rootBinding.rvDataList.setLayoutManager(new LinearLayoutManager(getContext()));

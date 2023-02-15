@@ -5,20 +5,20 @@ import org.greenrobot.greendao.annotation.Generated;
 import org.greenrobot.greendao.annotation.Id;
 
 @Entity
-public class QuestionBank {
+public class QuestionSubject {
     @Id(autoincrement = true)
     private Long id;
     //题目类型
-    private int subject;
+    private String subject;
 
-    @Generated(hash = 1391845408)
-    public QuestionBank(Long id, int subject) {
+    @Generated(hash = 1821314796)
+    public QuestionSubject(Long id, String subject) {
         this.id = id;
         this.subject = subject;
     }
 
-    @Generated(hash = 1279952239)
-    public QuestionBank() {
+    @Generated(hash = 1854115373)
+    public QuestionSubject() {
     }
 
     public Long getId() {
@@ -29,11 +29,12 @@ public class QuestionBank {
         this.id = id;
     }
 
-    public int getSubject() {
-        return this.subject;
+    public String getSubject() {
+        return subject;
     }
 
-    public void setSubject(int subject) {
+    public QuestionSubject setSubject(String subject) {
         this.subject = subject;
+        return this;
     }
 }

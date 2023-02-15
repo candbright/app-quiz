@@ -4,10 +4,10 @@ import com.candbright.quiz.dao.StringConverter;
 
 import org.greenrobot.greendao.annotation.Convert;
 import org.greenrobot.greendao.annotation.Entity;
-import org.greenrobot.greendao.annotation.Generated;
 import org.greenrobot.greendao.annotation.Id;
 
 import java.util.List;
+import org.greenrobot.greendao.annotation.Generated;
 
 @Entity
 public class Question {
@@ -16,32 +16,38 @@ public class Question {
     //难度
     private int difficulty;
     //题目类型
-    private int subject;
-    //问题描述
-    private String description;
-    //答案类型
-    private int questionType;
-    //答案
-    private String answer;
+    private String subject;
+    //问题
+    private String question;
     //选项
     @Convert(columnType = String.class, converter = StringConverter.class)
-    private List<String> urlPath;
+    private List<String> answers;
+    //答案类型
+    private int answerType;
+    //答案
+    private String answer;
+    //答案解释
+    private String description;
 
-    @Generated(hash = 1190655336)
-    public Question(Long id, int difficulty, int subject, String description,
-                    int questionType, String answer, List<String> urlPath) {
+
+    @Generated(hash = 343571502)
+    public Question(Long id, int difficulty, String subject, String question,
+            List<String> answers, int answerType, String answer,
+            String description) {
         this.id = id;
         this.difficulty = difficulty;
         this.subject = subject;
-        this.description = description;
-        this.questionType = questionType;
+        this.question = question;
+        this.answers = answers;
+        this.answerType = answerType;
         this.answer = answer;
-        this.urlPath = urlPath;
+        this.description = description;
     }
 
     @Generated(hash = 1868476517)
     public Question() {
     }
+
 
     public Long getId() {
         return id;
@@ -61,30 +67,30 @@ public class Question {
         return this;
     }
 
-    public int getSubject() {
+    public String getSubject() {
         return subject;
     }
 
-    public Question setSubject(int subject) {
+    public Question setSubject(String subject) {
         this.subject = subject;
         return this;
     }
 
-    public String getDescription() {
-        return description;
+    public String getQuestion() {
+        return question;
     }
 
-    public Question setDescription(String description) {
-        this.description = description;
+    public Question setQuestion(String question) {
+        this.question = question;
         return this;
     }
 
-    public int getQuestionType() {
-        return questionType;
+    public int getAnswerType() {
+        return answerType;
     }
 
-    public Question setQuestionType(int questionType) {
-        this.questionType = questionType;
+    public Question setAnswerType(int answerType) {
+        this.answerType = answerType;
         return this;
     }
 
@@ -97,12 +103,21 @@ public class Question {
         return this;
     }
 
-    public List<String> getUrlPath() {
-        return urlPath;
+    public List<String> getAnswers() {
+        return answers;
     }
 
-    public Question setUrlPath(List<String> urlPath) {
-        this.urlPath = urlPath;
+    public Question setAnswers(List<String> answers) {
+        this.answers = answers;
+        return this;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public Question setDescription(String description) {
+        this.description = description;
         return this;
     }
 }

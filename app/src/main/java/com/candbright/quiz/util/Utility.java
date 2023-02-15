@@ -112,7 +112,6 @@ public class Utility {
             }
 
         } catch (Exception e) {
-
             e.printStackTrace();
         }
         return data;
@@ -136,7 +135,7 @@ public class Utility {
         }
     }
 
-    public static <T> List<T> jsonToBean(String json, Class<T> classOfT) {
+    public static <T> List<T> jsonToList(String json, Class<T> classOfT) {
         try {
             JsonParser parser = new JsonParser();
             JsonArray jsonArray = parser.parse(json).getAsJsonArray();
