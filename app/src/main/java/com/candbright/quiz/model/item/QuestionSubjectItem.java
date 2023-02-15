@@ -2,25 +2,19 @@ package com.candbright.quiz.model.item;
 
 import androidx.annotation.NonNull;
 
+import com.candbright.base.adapter.DataItem;
 import com.candbright.base.adapter.SortedItem;
 import com.candbright.quiz.databinding.ItemQuestionSubjectBinding;
+import com.candbright.quiz.model.data.QuestionSubject;
 import com.candbright.quiz.model.holder.QuestionSubjectHolder;
 
 /**
  * <p>created by wyh in 2021/12/11</p>
  */
-public class QuestionSubjectItem extends SortedItem<QuestionSubjectHolder, ItemQuestionSubjectBinding> {
+public class QuestionSubjectItem extends DataItem<QuestionSubject, QuestionSubjectHolder, ItemQuestionSubjectBinding> {
 
-    //题目类型
-    private String subject;
-
-    public String getSubject() {
-        return subject;
-    }
-
-    public QuestionSubjectItem setSubject(String subject) {
-        this.subject = subject;
-        return this;
+    public QuestionSubjectItem(QuestionSubject questionSubject) {
+        super(questionSubject);
     }
 
     @Override

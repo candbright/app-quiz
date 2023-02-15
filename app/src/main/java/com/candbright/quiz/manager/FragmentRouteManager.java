@@ -8,6 +8,7 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
 import com.candbright.base.fragment.BaseFragment;
+import com.candbright.quiz.util.L;
 
 /**
  * <p>created by wyh in 2021/11/16</p>
@@ -39,17 +40,17 @@ public class FragmentRouteManager<Fragment extends BaseFragment> {
     public void addSubFragment(BaseFragment newFragment, int animRes) {
 
         if (null == newFragment) {
-            Log.e(TAG, "addSubFragment error, can't add a null fragment");
+            L.e(TAG, "addSubFragment error, can't add a null fragment");
             return;
         }
 
         if (null == fragmentManager) {
-            Log.e(TAG, "addSubFragment error, fragment manager is null");
+            L.e(TAG, "addSubFragment error, fragment manager is null");
             return;
         }
 
         if (-1 == fragment.getContainerId()) {
-            Log.e(TAG, "addSubFragment error, error container id ");
+            L.e(TAG, "addSubFragment error, error container id ");
             return;
         }
 
@@ -65,12 +66,12 @@ public class FragmentRouteManager<Fragment extends BaseFragment> {
     public static void addFragmentToContainer(FragmentManager fragmentManager, int containerViewId, BaseFragment fragment) {
 
         if (null == fragment) {
-            Log.e(TAG, "(addFragment) --- can not add an null fragment");
+            L.e(TAG, "(addFragment) --- can not add an null fragment");
             return;
         }
 
         if (null == fragmentManager) {
-            Log.e(TAG, "(addFragment) --- fragment manager is null");
+            L.e(TAG, "(addFragment) --- fragment manager is null");
             return;
         }
 

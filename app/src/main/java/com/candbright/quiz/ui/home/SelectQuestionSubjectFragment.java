@@ -57,7 +57,7 @@ public class SelectQuestionSubjectFragment extends BaseFragment<FragmentQuestion
         QuestionSubjectDaoHelper daoHelper = QuestionSubjectDaoHelper.getInstance(GlobalApp.getInstance());
         List<QuestionSubject> data = daoHelper.searchAll();
         data.stream().forEach(datum -> {
-            mData.add((QuestionSubjectItem) new QuestionSubjectItem().setSubject(datum.getSubject())
+            mData.add((QuestionSubjectItem) new QuestionSubjectItem(datum)
                     .setSortedIndex(datum.getId().intValue()));
         });
         dataAdapter = new MyDiffAdapter(mData.list());

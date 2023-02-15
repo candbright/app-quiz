@@ -11,7 +11,7 @@ import com.candbright.quiz.model.adapter.MyDiffAdapter;
 import com.candbright.quiz.model.data.Question;
 import com.candbright.quiz.model.data.QuestionSubject;
 import com.candbright.quiz.model.item.QuestionItem;
-import com.candbright.quiz.model.item.SelectorBarItem;
+import com.candbright.quiz.model.item.QuestionSubjectSelectItem;
 
 import java.util.List;
 
@@ -27,7 +27,7 @@ public class QuestionFragment extends BaseFragment<FragmentQuestionSubjectBindin
 
     MyDiffAdapter subjectAdapter;
 
-    SortedItemList<SelectorBarItem> mSubjectData;
+    SortedItemList<QuestionSubjectSelectItem> mSubjectData;
     int oldModeIndex;
 
     @Override
@@ -40,7 +40,7 @@ public class QuestionFragment extends BaseFragment<FragmentQuestionSubjectBindin
         mSubjectData = new SortedItemList();
         List<QuestionSubject> subjects = qbDaoHelper.searchAll();
         subjects.stream().forEach(subject -> {
-            mSubjectData.add(new SelectorBarItem().setStrRes(subject.getSubject()));
+            mSubjectData.add(new QuestionSubjectSelectItem().setStrRes(subject.getSubject()));
         });
         subjectAdapter = new MyDiffAdapter(mSubjectData.list());
         rootBinding.rvModeList.setAdapter(subjectAdapter);
@@ -49,9 +49,9 @@ public class QuestionFragment extends BaseFragment<FragmentQuestionSubjectBindin
             if (sortedIndex == oldModeIndex) {
                 return;
             }
-            SelectorBarItem oldItem = (SelectorBarItem) subjectAdapter.getChangedItem(oldModeIndex);
+            QuestionSubjectSelectItem oldItem = (QuestionSubjectSelectItem) subjectAdapter.getChangedItem(oldModeIndex);
             oldItem.setSelected(false);
-            SelectorBarItem changedItem = (SelectorBarItem) subjectAdapter.getChangedItem((int) sortedIndex);
+            QuestionSubjectSelectItem changedItem = (QuestionSubjectSelectItem) subjectAdapter.getChangedItem((int) sortedIndex);
             changedItem.setSelected(true);
             oldModeIndex = changedItem.getSortedIndex();
             subjectAdapter.notifyDiff();
@@ -59,10 +59,10 @@ public class QuestionFragment extends BaseFragment<FragmentQuestionSubjectBindin
         });
 
         mData = new SortedItemList(true);
-        List<QuestionSubject> questions = qbDaoHelper.searchAll();
+        List<Question> questions = qDaoHelper.searchAll();
         questions.stream().forEach(question -> {
             //todo
-            mData.add(new QuestionItem().setSubject(question.getSubject()));
+            mData.add(new QuestionItem(question));
         });
         dataAdapter = new MyDiffAdapter(mData.list());
         rootBinding.rvDataList.setAdapter(dataAdapter);
@@ -76,7 +76,7 @@ public class QuestionFragment extends BaseFragment<FragmentQuestionSubjectBindin
         List<Question> questions = qDaoHelper.searchBySubject(subject);
         questions.stream().forEach(question -> {
             //todo
-            mData.add(new QuestionItem().setSubject(question.getSubject()));
+            mData.add(new QuestionItem(question));
         });
         dataAdapter.notifyDiff();
     }

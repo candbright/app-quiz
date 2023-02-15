@@ -76,9 +76,9 @@ public class MyDiffAdapter extends BaseDiffAdapter {
         return getRealIndex(super.data, sortIndex);
     }
 
-    public int getRealIndex(List<SortedItem> datas, int sortIndex) {
-        for (int i = 0; i < datas.size(); i++) {
-            if (datas.get(i).getSortedIndex() == sortIndex) {
+    public int getRealIndex(List<SortedItem> data, int sortIndex) {
+        for (int i = 0; i < data.size(); i++) {
+            if (data.get(i).getSortedIndex() == sortIndex) {
                 return i;
             }
         }

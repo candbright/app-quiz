@@ -32,7 +32,7 @@ public class Utility {
 
     public static SharedPreferences getSharedPreferences(Context context) {
         if (null == context) {
-            Log.e(TAG, "(getSharedPreferences failed, context is null.");
+            L.e(TAG, "(getSharedPreferences failed, context is null.");
             return null;
         }
         return context.getSharedPreferences("share_" + "", Context.MODE_PRIVATE);
@@ -65,7 +65,7 @@ public class Utility {
                 String strJson = gson.toJson(data);
                 editor.putString(dataKey, strJson);
             } else {
-                Log.e(TAG, "getSharedPreferences failed, error object type.");
+                L.e(TAG, "getSharedPreferences failed, error object type.");
             }
             editor.commit();
         } catch (Exception e) {
@@ -108,7 +108,7 @@ public class Utility {
                 data = gson.fromJson(strJson, new TypeToken<List<String>>() {
                 }.getType());
             } else {
-                Log.e(TAG, "getSharedPreferences failed, error object type.");
+                L.e(TAG, "getSharedPreferences failed, error object type.");
             }
 
         } catch (Exception e) {

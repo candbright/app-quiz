@@ -9,6 +9,7 @@ import com.candbright.quiz.dao.helper.QuestionDaoHelper;
 import com.candbright.quiz.dao.helper.QuestionSubjectDaoHelper;
 import com.candbright.quiz.model.data.Question;
 import com.candbright.quiz.model.data.QuestionSubject;
+import com.candbright.quiz.util.L;
 import com.candbright.quiz.util.Utility;
 
 import java.util.List;
@@ -59,26 +60,26 @@ public class GlobalApp extends Application {
         String string = "";
 
         if (null == singleton) {
-            Log.e(TAG, "getResString failed, because application is null.");
+            L.e(TAG, "getResString failed, because application is null.");
             return string;
         }
 
         Context context = singleton.getApplicationContext();
         if (null == context) {
-            Log.e(TAG, "getResString failed, because context is null.");
+            L.e(TAG, "getResString failed, because context is null.");
             return string;
         }
 
         Resources resources = context.getResources();
         if (null == resources) {
-            Log.e(TAG, "getResString failed, because resources is null.");
+            L.e(TAG, "getResString failed, because resources is null.");
             return string;
         }
 
         try {
             string = resources.getString(resId);
         } catch (Exception e) {
-            Log.e(TAG, "getResString failed, because Resources.getString() method cause an exception.");
+            L.e(TAG, "getResString failed, because Resources.getString() method cause an exception.");
         }
 
         return string;
