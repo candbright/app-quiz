@@ -22,7 +22,7 @@ public class QuestionDaoHelper {
     private static QuestionDaoHelper mDaoHelper;
 
     private QuestionDaoHelper(Context context) {
-        mDevOpenHelper = new DaoMaster.DevOpenHelper(context.getApplicationContext(), "QUESTION_BANK.db", null);
+        mDevOpenHelper = new DaoMaster.DevOpenHelper(context.getApplicationContext(), "QUESTION.db", null);
         mDaoMaster = new DaoMaster(mDevOpenHelper.getWritableDb());
         mDaoSession = mDaoMaster.newSession();
         mDao = mDaoSession.getQuestionDao();
@@ -84,7 +84,7 @@ public class QuestionDaoHelper {
 
     public List<Question> searchBySubject(String subject) {
         QueryBuilder<Question> songQueryBuilder = mDao.queryBuilder();
-        List<Question> data = songQueryBuilder.where(QuestionDao.Properties.Id.eq(subject)).list();
+        List<Question> data = songQueryBuilder.where(QuestionDao.Properties.Subject.eq(subject)).list();
         return data;
     }
 

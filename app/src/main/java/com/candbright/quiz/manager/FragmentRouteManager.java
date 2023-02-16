@@ -25,7 +25,7 @@ public class FragmentRouteManager<Fragment extends BaseFragment> {
 
     public FragmentRouteManager(@NonNull Fragment fragment) {
         this.fragment = fragment;
-        fragmentManager = fragment.getFragmentManager();
+        fragmentManager = fragment.getActivity().getSupportFragmentManager();
     }
 
     @SuppressLint("WrongConstant")

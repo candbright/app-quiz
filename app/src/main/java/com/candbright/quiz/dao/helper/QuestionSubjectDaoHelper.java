@@ -22,7 +22,7 @@ public class QuestionSubjectDaoHelper {
     private static QuestionSubjectDaoHelper mDaoHelper;
 
     private QuestionSubjectDaoHelper(Context context) {
-        mDevOpenHelper = new DaoMaster.DevOpenHelper(context.getApplicationContext(), "QUESTION_BANK.db", null);
+        mDevOpenHelper = new DaoMaster.DevOpenHelper(context.getApplicationContext(), "QUESTION_SUBJECT.db", null);
         mDaoMaster = new DaoMaster(mDevOpenHelper.getWritableDb());
         mDaoSession = mDaoMaster.newSession();
         mDao = mDaoSession.getQuestionSubjectDao();

@@ -45,7 +45,7 @@ public class GlobalApp extends Application {
                 QuestionSubjectDaoHelper daoHelper = QuestionSubjectDaoHelper.getInstance(this);
                 daoHelper.insert(questionSubjectData);
             }
-            String questionStr = Utility.getJson(this, "question_subject.json");
+            String questionStr = Utility.getJson(this, "question.json");
             List<Question> questionData = Utility.jsonToList(questionStr, Question.class);
             if (questionData != null && questionData.size() > 0) {
                 QuestionDaoHelper daoHelper = QuestionDaoHelper.getInstance(this);

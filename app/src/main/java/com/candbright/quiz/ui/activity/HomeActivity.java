@@ -6,6 +6,7 @@ import com.candbright.quiz.databinding.ActivityHomeBinding;
 import com.candbright.quiz.databinding.NavigationBottomBarBinding;
 import com.candbright.quiz.manager.ActivityFragmentManager;
 import com.candbright.quiz.manager.widget.NavigationBottomBarManager;
+import com.candbright.quiz.ui.fragment.QuestionBySubjectFragment;
 import com.candbright.quiz.ui.fragment.SelectQuestionSubjectFragment;
 
 /**
@@ -14,7 +15,6 @@ import com.candbright.quiz.ui.fragment.SelectQuestionSubjectFragment;
 public class HomeActivity extends BaseExitActivity<ActivityHomeBinding> {
     private NavigationBottomBarBinding navigationBarBottom;
     private ActivityFragmentManager fragmentManager;
-    private NavigationBottomBarManager navigationBottomBarManager;
 
     protected String getExitMessage() {
         return "再次点击后退出APP";
@@ -29,12 +29,12 @@ public class HomeActivity extends BaseExitActivity<ActivityHomeBinding> {
     protected void initManager() {
         fragmentManager = new ActivityFragmentManager<>(this, R.id.fragment_container);
         fragmentManager.addOrReplaceFragment(new SelectQuestionSubjectFragment());
-        navigationBottomBarManager = new NavigationBottomBarManager(navigationBarBottom);
+        NavigationBottomBarManager navigationBottomBarManager = new NavigationBottomBarManager(navigationBarBottom);
         navigationBottomBarManager.setFirstButtonClickListener(v -> {
             fragmentManager.addOrReplaceFragment(new SelectQuestionSubjectFragment());
         });
         navigationBottomBarManager.setSecondButtonClickListener(v -> {
-            fragmentManager.addOrReplaceFragment(new SelectQuestionSubjectFragment());
+            fragmentManager.addOrReplaceFragment(new QuestionBySubjectFragment("subject_language"));
         });
         navigationBottomBarManager.setThirdClickListener(v -> {
 

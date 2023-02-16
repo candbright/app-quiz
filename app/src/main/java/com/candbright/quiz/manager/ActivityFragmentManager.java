@@ -39,6 +39,7 @@ public class ActivityFragmentManager<Activity extends BaseActivity> {
     }
 
     public void addOrReplaceFragment(BaseFragment fragment) {
+        fragment.setContainerId(containerId);
         addOrReplaceFragment(containerId, fragment);
     }
 
