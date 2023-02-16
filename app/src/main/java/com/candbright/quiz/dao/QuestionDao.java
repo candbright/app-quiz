@@ -31,7 +31,7 @@ public class QuestionDao extends AbstractDao<Question, Long> {
         public final static Property Subject = new Property(2, String.class, "subject", false, "SUBJECT");
         public final static Property Question = new Property(3, String.class, "question", false, "QUESTION");
         public final static Property Answers = new Property(4, String.class, "answers", false, "ANSWERS");
-        public final static Property AnswerType = new Property(5, int.class, "answerType", false, "ANSWER_TYPE");
+        public final static Property AnswerType = new Property(5, String.class, "answerType", false, "ANSWER_TYPE");
         public final static Property Answer = new Property(6, String.class, "answer", false, "ANSWER");
         public final static Property Description = new Property(7, String.class, "description", false, "DESCRIPTION");
     }
@@ -55,7 +55,7 @@ public class QuestionDao extends AbstractDao<Question, Long> {
                 "\"SUBJECT\" TEXT," + // 2: subject
                 "\"QUESTION\" TEXT," + // 3: question
                 "\"ANSWERS\" TEXT," + // 4: answers
-                "\"ANSWER_TYPE\" INTEGER NOT NULL ," + // 5: answerType
+                "\"ANSWER_TYPE\" TEXT," + // 5: answerType
                 "\"ANSWER\" TEXT," + // 6: answer
                 "\"DESCRIPTION\" TEXT);"); // 7: description
     }
@@ -90,7 +90,11 @@ public class QuestionDao extends AbstractDao<Question, Long> {
         if (answers != null) {
             stmt.bindString(5, answersConverter.convertToDatabaseValue(answers));
         }
-        stmt.bindLong(6, entity.getAnswerType());
+ 
+        String answerType = entity.getAnswerType();
+        if (answerType != null) {
+            stmt.bindString(6, answerType);
+        }
  
         String answer = entity.getAnswer();
         if (answer != null) {
@@ -127,7 +131,11 @@ public class QuestionDao extends AbstractDao<Question, Long> {
         if (answers != null) {
             stmt.bindString(5, answersConverter.convertToDatabaseValue(answers));
         }
-        stmt.bindLong(6, entity.getAnswerType());
+ 
+        String answerType = entity.getAnswerType();
+        if (answerType != null) {
+            stmt.bindString(6, answerType);
+        }
  
         String answer = entity.getAnswer();
         if (answer != null) {
@@ -153,7 +161,7 @@ public class QuestionDao extends AbstractDao<Question, Long> {
             cursor.isNull(offset + 2) ? null : cursor.getString(offset + 2), // subject
             cursor.isNull(offset + 3) ? null : cursor.getString(offset + 3), // question
             cursor.isNull(offset + 4) ? null : answersConverter.convertToEntityProperty(cursor.getString(offset + 4)), // answers
-            cursor.getInt(offset + 5), // answerType
+            cursor.isNull(offset + 5) ? null : cursor.getString(offset + 5), // answerType
             cursor.isNull(offset + 6) ? null : cursor.getString(offset + 6), // answer
             cursor.isNull(offset + 7) ? null : cursor.getString(offset + 7) // description
         );
@@ -167,7 +175,7 @@ public class QuestionDao extends AbstractDao<Question, Long> {
         entity.setSubject(cursor.isNull(offset + 2) ? null : cursor.getString(offset + 2));
         entity.setQuestion(cursor.isNull(offset + 3) ? null : cursor.getString(offset + 3));
         entity.setAnswers(cursor.isNull(offset + 4) ? null : answersConverter.convertToEntityProperty(cursor.getString(offset + 4)));
-        entity.setAnswerType(cursor.getInt(offset + 5));
+        entity.setAnswerType(cursor.isNull(offset + 5) ? null : cursor.getString(offset + 5));
         entity.setAnswer(cursor.isNull(offset + 6) ? null : cursor.getString(offset + 6));
         entity.setDescription(cursor.isNull(offset + 7) ? null : cursor.getString(offset + 7));
      }

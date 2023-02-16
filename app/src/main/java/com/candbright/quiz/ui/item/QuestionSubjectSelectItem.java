@@ -1,38 +1,22 @@
-package com.candbright.quiz.model.item;
+package com.candbright.quiz.ui.item;
 
 import androidx.annotation.NonNull;
 
+import com.candbright.base.adapter.DataItem;
 import com.candbright.base.adapter.SortedItem;
 import com.candbright.quiz.databinding.ItemBarSelectorBinding;
-import com.candbright.quiz.model.holder.QuestionSubjectSelectHolder;
+import com.candbright.quiz.model.data.QuestionSubject;
+import com.candbright.quiz.ui.holder.QuestionSubjectSelectHolder;
 
 /**
  * <p>created by wyh in 2021/12/11</p>
  */
-public class QuestionSubjectSelectItem extends SortedItem<QuestionSubjectSelectHolder, ItemBarSelectorBinding> {
-    //item内容
-    private String strRes;
-
-    private int intRes;
+public class QuestionSubjectSelectItem extends DataItem<QuestionSubject, QuestionSubjectSelectHolder, ItemBarSelectorBinding> {
     //是否选中
     private boolean isSelected = false;
 
-    public String getStrRes() {
-        return strRes;
-    }
-
-    public QuestionSubjectSelectItem setStrRes(String strRes) {
-        this.strRes = strRes;
-        return this;
-    }
-
-    public int getIntRes() {
-        return intRes;
-    }
-
-    public QuestionSubjectSelectItem setIntRes(int intRes) {
-        this.intRes = intRes;
-        return this;
+    public QuestionSubjectSelectItem(QuestionSubject questionSubject) {
+        super(questionSubject);
     }
 
     public boolean isSelected() {

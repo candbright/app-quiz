@@ -1,4 +1,4 @@
-package com.candbright.quiz.model.adapter;
+package com.candbright.quiz.ui.adapter;
 
 import android.view.ViewGroup;
 
@@ -17,23 +17,23 @@ import java.util.List;
  * <p>根据{@link SortedItem}中的sortedIndex属性对adapter中的数据进行有序排列。
  * 通过比较Item的toString方法来判断数据改变前后的Item是否一致，如果不一致，则可以调用{@link #notifyDiff()}方法通知RecyclerView刷新布局。</p>
  */
-public class MyDiffAdapter extends BaseDiffAdapter {
+public class MyDiffAdapter<ItemType extends SortedItem> extends BaseDiffAdapter<ItemType> {
 
     private OnItemEventListener mListener;
 
-    public MyDiffAdapter(List<SortedItem> data) {
+    public MyDiffAdapter(List<ItemType> data) {
         super(data);
     }
 
     @Override
-    protected boolean areItemsTheSame(SortedItem oldItem, SortedItem newItem) {
-        return oldItem.getSortedIndex() == newItem.getSortedIndex();
+    protected boolean areItemsTheSame(ItemType oldItemType, ItemType newItemType) {
+        return oldItemType.getSortedIndex() == newItemType.getSortedIndex();
 
     }
 
     @Override
-    protected boolean areContentsTheSame(SortedItem oldItem, SortedItem newItem) {
-        return oldItem.toString().equals(newItem.toString());
+    protected boolean areContentsTheSame(ItemType oldItemType, ItemType newItemType) {
+        return oldItemType.toString().equals(newItemType.toString());
     }
 
     @NonNull
@@ -76,7 +76,7 @@ public class MyDiffAdapter extends BaseDiffAdapter {
         return getRealIndex(super.data, sortIndex);
     }
 
-    public int getRealIndex(List<SortedItem> data, int sortIndex) {
+    public int getRealIndex(List<ItemType> data, int sortIndex) {
         for (int i = 0; i < data.size(); i++) {
             if (data.get(i).getSortedIndex() == sortIndex) {
                 return i;
@@ -91,14 +91,14 @@ public class MyDiffAdapter extends BaseDiffAdapter {
      * @param sortIndex
      * @return
      */
-    public SortedItem getChangedItem(int sortIndex) {
+    public ItemType getChangedItem(int sortIndex) {
         int realIndex = getRealIndex(sortIndex);
         if (realIndex == -1) {
             return null;
         }
-        SortedItem copy = null;
+        ItemType copy = null;
         try {
-            copy = (SortedItem) super.data.get(realIndex).clone();
+            copy = (ItemType) super.data.get(realIndex).clone();
         } catch (Exception e) {
             e.printStackTrace();
         }

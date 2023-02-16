@@ -6,17 +6,32 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/color_background_normal"
-    tools:context=".ui.home.SelectQuestionSubjectFragment">
+    tools:context=".ui.fragment.QuestionBySubjectFragment">
 
     <LinearLayout
         android:id="@+id/navigation_top"
-        android:layout_width="@dimen/dp_0"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
         <include layout="@layout/navigation_bar" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/selector_bar_subject"
+        android:layout_width="@dimen/dp_0"
+        android:layout_height="wrap_content"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="navigation_top">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_mode_list"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/color_background_normal" />
     </LinearLayout>
 
     <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
@@ -26,7 +41,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/navigation_top">
+        app:layout_constraintTop_toBottomOf="@+id/selector_bar_subject">
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rv_data_list"

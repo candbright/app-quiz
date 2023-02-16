@@ -1,12 +1,11 @@
-package com.candbright.quiz.model.item;
+package com.candbright.quiz.ui.item;
 
 import androidx.annotation.NonNull;
 
 import com.candbright.base.adapter.DataItem;
-import com.candbright.base.adapter.SortedItem;
 import com.candbright.quiz.databinding.ItemQuestionSubjectBinding;
 import com.candbright.quiz.model.data.QuestionSubject;
-import com.candbright.quiz.model.holder.QuestionSubjectHolder;
+import com.candbright.quiz.ui.holder.QuestionSubjectHolder;
 
 /**
  * <p>created by wyh in 2021/12/11</p>

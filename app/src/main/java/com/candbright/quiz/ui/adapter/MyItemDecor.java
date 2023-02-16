@@ -1,4 +1,4 @@
-package com.candbright.quiz.model.adapter;
+package com.candbright.quiz.ui.adapter;
 
 import android.graphics.Rect;
 import android.view.View;

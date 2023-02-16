@@ -1,20 +1,16 @@
-package com.candbright.quiz.model.holder;
+package com.candbright.quiz.ui.holder;
 
 import android.view.View;
 
-import com.candbright.base.adapter.BaseViewHolder;
 import com.candbright.base.adapter.DataHolder;
 import com.candbright.quiz.databinding.ItemQuestionSubjectBinding;
-import com.candbright.quiz.model.data.QuestionSubject;
-import com.candbright.quiz.model.item.QuestionSubjectItem;
+import com.candbright.quiz.ui.item.QuestionSubjectItem;
 import com.candbright.quiz.util.Utility;
 
 /**
  * <p>created by wyh in 2021/12/11</p>
  */
 public class QuestionSubjectHolder extends DataHolder<QuestionSubjectItem, ItemQuestionSubjectBinding> {
-    private static final String TAG = QuestionSubjectHolder.class.getSimpleName();
-
     public QuestionSubjectHolder(View itemView) {
         super(itemView);
     }

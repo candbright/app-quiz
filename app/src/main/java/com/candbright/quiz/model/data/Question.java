@@ -23,16 +23,16 @@ public class Question {
     @Convert(columnType = String.class, converter = StringConverter.class)
     private List<String> answers;
     //答案类型
-    private int answerType;
+    private String answerType;
     //答案
     private String answer;
     //答案解释
     private String description;
 
 
-    @Generated(hash = 343571502)
+    @Generated(hash = 165085850)
     public Question(Long id, int difficulty, String subject, String question,
-            List<String> answers, int answerType, String answer,
+            List<String> answers, String answerType, String answer,
             String description) {
         this.id = id;
         this.difficulty = difficulty;
@@ -85,11 +85,11 @@ public class Question {
         return this;
     }
 
-    public int getAnswerType() {
+    public String getAnswerType() {
         return answerType;
     }
 
-    public Question setAnswerType(int answerType) {
+    public Question setAnswerType(String answerType) {
         this.answerType = answerType;
         return this;
     }
