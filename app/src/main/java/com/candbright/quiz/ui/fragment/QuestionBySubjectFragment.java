@@ -1,5 +1,7 @@
 package com.candbright.quiz.ui.fragment;
 
+import android.view.View;
+
 import androidx.recyclerview.widget.LinearLayoutManager;
 
 import com.candbright.base.adapter.SortedItemList;
@@ -22,9 +24,9 @@ import java.util.List;
 
 public class QuestionBySubjectFragment extends BaseFragment<FragmentQuestionBySubjectBinding> {
 
-    private final QuestionSubjectDaoHelper qbDaoHelper = QuestionSubjectDaoHelper.getInstance(GlobalApp.getInstance());
+    private final QuestionSubjectDaoHelper qbDaoHelper = QuestionSubjectDaoHelper.getInstance();
 
-    private final QuestionDaoHelper qDaoHelper = QuestionDaoHelper.getInstance(GlobalApp.getInstance());
+    private final QuestionDaoHelper qDaoHelper = QuestionDaoHelper.getInstance();
 
     private NavigationBarBinding navigationBarTop;
 
@@ -53,9 +55,17 @@ public class QuestionBySubjectFragment extends BaseFragment<FragmentQuestionBySu
 
     @Override
     protected void initManager() {
+        //顶部导航栏
         NavigationBarManager navigationBarTopManager = new NavigationBarManager(navigationBarTop);
         navigationBarTopManager.setTitle(R.string.title_question_subject);
+        navigationBarTopManager.setRightImageSrc(R.drawable.navigation_back);
+        navigationBarTopManager.setRightOnClickListener(view -> {
+            if (this.getActivity() != null) {
+                this.getActivity().onBackPressed();
+            }
+        });
         fragmentManager = new FragmentRouteManager<>(this);
+        //题目类型导航栏
         mSubjectData = new SortedItemList<>();
         List<QuestionSubject> subjects = qbDaoHelper.searchAll();
         subjects.forEach(subject -> {
@@ -80,6 +90,7 @@ public class QuestionBySubjectFragment extends BaseFragment<FragmentQuestionBySu
             subjectAdapter.notifyDiff();
             flushData(changedItem.getData().getSubject());
         });
+        //题目
         mData = new SortedItemList<>(true);
         if (mData.size() > 0) {
             mData.clear();
@@ -94,6 +105,7 @@ public class QuestionBySubjectFragment extends BaseFragment<FragmentQuestionBySu
         dataAdapter.setOnItemListener((sortedIndex, switchValue, data) -> {
             fragmentManager.goToSubFragment(new QuestionDetailFragment());
         });
+        //刷新列表
         getRootBinding().refreshLayout.setOnRefreshListener(() -> {
             getRootBinding().refreshLayout.setRefreshing(false);
         });

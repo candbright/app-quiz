@@ -40,4 +40,11 @@ public class HomeActivity extends BaseExitActivity<ActivityHomeBinding> {
 
         });
     }
+
+    @Override
+    public void onBackPressed() {
+        if (!fragmentManager.popBackStackImmediate()) {
+            super.onBackPressed();
+        }
+    }
 }

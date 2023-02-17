@@ -54,4 +54,11 @@ public class ActivityFragmentManager<Activity extends BaseActivity> {
         transaction.replace(containerViewId, fragment, fragment.getClass().getName());
         transaction.commit();
     }
+
+    public boolean popBackStackImmediate() {
+        if (null == fragmentManager) {
+            return false;
+        }
+        return fragmentManager.popBackStackImmediate();
+    }
 }

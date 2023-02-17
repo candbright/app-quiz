@@ -13,7 +13,6 @@
             android:layout_width="@dimen/dp_50"
             android:layout_height="@dimen/dp_50"
             android:padding="@dimen/dp_12"
-            android:src="@color/common_blue"
             app:layout_constraintBottom_toBottomOf="@+id/container_top"
             app:layout_constraintLeft_toLeftOf="@+id/container_top"
             app:layout_constraintTop_toTopOf="@+id/container_top" />
@@ -36,7 +35,6 @@
             android:layout_width="@dimen/dp_50"
             android:layout_height="@dimen/dp_50"
             android:padding="@dimen/dp_12"
-            android:src="@color/common_blue"
             app:layout_constraintBottom_toBottomOf="@+id/container_top"
             app:layout_constraintRight_toRightOf="@+id/container_top"
             app:layout_constraintTop_toTopOf="@+id/container_top" />

@@ -57,7 +57,7 @@ public class SelectQuestionSubjectFragment extends BaseFragment<FragmentSelectQu
     private void initData() {
         //主界面数据
         mData = new SortedItemList<>(true);
-        QuestionSubjectDaoHelper daoHelper = QuestionSubjectDaoHelper.getInstance(GlobalApp.getInstance());
+        QuestionSubjectDaoHelper daoHelper = QuestionSubjectDaoHelper.getInstance();
         List<QuestionSubject> data = daoHelper.searchAll();
         data.forEach(datum -> {
             mData.add((QuestionSubjectItem) new QuestionSubjectItem(datum)

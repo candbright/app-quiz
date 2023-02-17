@@ -7,6 +7,7 @@
     <string name="navigation_bottom_second">答题</string>
     <string name="navigation_bottom_third">我的</string>
 
+    <string name="subject_all">所有</string>
     <string name="subject_china">国家</string>
     <string name="subject_wiki">常识和百科</string>
     <string name="subject_language">语文</string>

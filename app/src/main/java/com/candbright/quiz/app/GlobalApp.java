@@ -37,18 +37,19 @@ public class GlobalApp extends Application {
     }
 
     private void initDao() {
+        //TODO 应该删除此处的测试数据
         Boolean isRead = (Boolean) Utility.getShareFileData(this, "isRead", false);
         if (!isRead) {
             String questionSubjectStr = Utility.getJson(this, "question_subject.json");
             List<QuestionSubject> questionSubjectData = Utility.jsonToList(questionSubjectStr, QuestionSubject.class);
             if (questionSubjectData != null && questionSubjectData.size() > 0) {
-                QuestionSubjectDaoHelper daoHelper = QuestionSubjectDaoHelper.getInstance(this);
+                QuestionSubjectDaoHelper daoHelper = QuestionSubjectDaoHelper.getInstance();
                 daoHelper.insert(questionSubjectData);
             }
             String questionStr = Utility.getJson(this, "question.json");
             List<Question> questionData = Utility.jsonToList(questionStr, Question.class);
             if (questionData != null && questionData.size() > 0) {
-                QuestionDaoHelper daoHelper = QuestionDaoHelper.getInstance(this);
+                QuestionDaoHelper daoHelper = QuestionDaoHelper.getInstance();
                 daoHelper.insert(questionData);
             }
             Utility.setShareFileData(this, "isRead", true);

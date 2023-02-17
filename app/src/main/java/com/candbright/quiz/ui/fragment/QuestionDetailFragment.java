@@ -7,9 +7,9 @@ import com.candbright.quiz.databinding.FragmentQuestionBySubjectBinding;
 
 public class QuestionDetailFragment extends BaseFragment<FragmentQuestionBySubjectBinding> {
 
-    private QuestionSubjectDaoHelper qbDaoHelper = QuestionSubjectDaoHelper.getInstance(this.getContext());
+    private QuestionSubjectDaoHelper qbDaoHelper = QuestionSubjectDaoHelper.getInstance();
 
-    private QuestionDaoHelper qDaoHelper = QuestionDaoHelper.getInstance(this.getContext());
+    private QuestionDaoHelper qDaoHelper = QuestionDaoHelper.getInstance();
 
     @Override
     protected void initViewBinding() {
